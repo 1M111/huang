@@ -43,12 +43,22 @@ document.addEventListener('DOMContentLoaded', function() {
             indexSpan.className = `hot-index ${index < 3 ? 'top3' : ''}`;
             indexSpan.textContent = index + 1;
 
-            const titleSpan = document.createElement('span');
-            titleSpan.className = 'hot-title';
-            titleSpan.textContent = item.title;
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'hot-content';
+
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'hot-title';
+            titleDiv.textContent = item.title;
+
+            const descDiv = document.createElement('div');
+            descDiv.className = 'hot-description';
+            descDiv.textContent = item.description;
+
+            contentDiv.appendChild(titleDiv);
+            contentDiv.appendChild(descDiv);
 
             hotItem.appendChild(indexSpan);
-            hotItem.appendChild(titleSpan);
+            hotItem.appendChild(contentDiv);
 
             hotItem.addEventListener('click', () => {
                 searchInput.value = item.title;
